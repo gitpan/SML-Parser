@@ -1,0 +1,18 @@
+#!/usr/bin/perl -w
+
+	use strict;
+	use warnings;
+	use Data::Dump qw(pp);
+	use	SML::Parser;
+	
+	print "START\n";
+	
+	my	$source_filename	= 'cms.template.sml';
+
+	my	$parser = SML::Parser->new();
+	my	$text_source = qx{cat $source_filename};
+	my	$data = $parser->parse( $text_source );
+
+	print "PARSED\n";
+
+print pp( $data );

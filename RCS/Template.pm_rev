@@ -1,0 +1,165 @@
+head	1.2;
+access;
+symbols;
+locks
+	root:1.2; strict;
+comment	@# @;
+
+
+1.2
+date	2004.05.10.20.45.08;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2004.05.10.20.28.18;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@SML::Template
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@### //////////////////////////////////////////////////////////////////////////
+#
+#	TOP
+#
+
+=head1 NAME
+
+SML::Template - SIMPLIFIED MARKUP LANGUAGE
+
+=cut
+
+#------------------------------------------------------
+# 2004/03/28 0:51 - $Date: 2004/05/10 20:28:18 $
+# (C) Daniel Peder & Infoset s.r.o., all rights reserved
+# http://www.infoset.com, Daniel.Peder@@infoset.com
+#------------------------------------------------------
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: package
+#
+
+	package SML::Template;
+
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: version
+#
+
+	use vars qw( $VERSION $VERSION_LABEL $REVISION $REVISION_DATETIME $REVISION_LABEL $PROG_LABEL );
+
+	$VERSION           = '0.10';
+	
+	$REVISION          = (qw$Revision: 1.1 $)[1];
+	$REVISION_DATETIME = join(' ',(qw$Date: 2004/05/10 20:28:18 $)[1,2]);
+	$REVISION_LABEL    = '$Id: Template.pm_rev 1.1 2004/05/10 20:28:18 root Exp root $';
+	$VERSION_LABEL     = "$VERSION (rev. $REVISION $REVISION_DATETIME)";
+	$PROG_LABEL        = __PACKAGE__." - ver. $VERSION_LABEL";
+
+=pod
+
+ $Revision: 1.1 $
+ $Date: 2004/05/10 20:28:18 $
+
+=cut
+
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: constants
+#
+
+	# use constant	name		=> 'value';
+	
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: modules use
+#
+
+	require 5.005_62;
+
+	use strict                  ;
+	use warnings                ;
+	
+	use	SML::Parser				;
+	use	base	qw(SML::Parser)	;
+	
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: methods
+#
+
+=head1 METHODS
+
+=over 4
+
+=cut
+
+
+
+=item	new, parse, parse_attributes
+
+ Inherited from SML::Parser.
+ 
+=cut
+
+
+
+
+
+=back
+
+=cut
+
+
+1;
+
+__DATA__
+
+__END__
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d13 1
+a13 1
+# 2004/03/28 0:51 - $Date: 2004/03/30 01:08:04 $
+d36 2
+a37 2
+	$REVISION_DATETIME = join(' ',(qw$Date: 2004/03/30 01:08:04 $)[1,2]);
+	$REVISION_LABEL    = '$Id: Template.pm_rev 1.1 2004/03/30 01:08:04 root Exp root $';
+d44 1
+a44 1
+ $Date: 2004/03/30 01:08:04 $
+d67 3
+d84 1
+a84 1
+=item new
+d86 1
+a86 1
+ $sml = SML::Template->new();
+a89 6
+### --------------------------------------------------------------------------
+sub new
+### --------------------------------------------------------------------------
+{
+	bless {};
+}
+@

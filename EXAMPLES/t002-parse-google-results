@@ -1,0 +1,85 @@
+#!/usr/bin/perl -w
+
+	use strict;
+	use warnings;
+	use Data::Dump qw(pp);
+	use	SML::Parser;
+	use	SML::Item;
+	
+	my	$DEBUG = 0;
+	
+	print "START\n";
+	
+	my	$source_filename	= 'gr.html.txt';
+
+	my	$parser = new SML::Parser();
+	my	$text_source = qx{cat $source_filename};
+	my	$data = $parser->parse( $text_source );
+
+	print "PARSED\n";
+
+
+	my	$output_status	= 0;
+	for my $item ( @$data )
+	{
+		new	SML::Item( $item );
+		my	$type = $item->[0];
+		my(	$pi, $name, $body );
+		if(	$item->is_element )
+		{
+				$name	= lc($item->get_name);
+
+			if
+			( 
+				$name eq 'p' 
+				&& $item->get_attribute_value('class') 
+				&& $item->get_attribute_value('class') eq 'g' 
+			)
+			{
+				print "\n";
+				$output_status	= 1;
+			}
+			elsif( 
+					($name !~ /^table|tr|td|b|a|font$/ )
+					||
+					( 
+						$item->get_attribute_value('color')
+						|| 
+						($item->get_attribute_value('class')&&$item->get_attribute_value('class')eq'fl')
+					)
+			)
+			{
+				$DEBUG &&
+				print "\n---------------\noff by: <$name $body>\n" if $output_status;
+				$output_status	= 0;
+			}
+
+
+		}
+
+		if( $output_status )
+		{
+			if(	$item->is_pi )
+			{
+			}
+			elsif( $item->is_text )
+			{
+				print $item->[1] ;
+			}
+			elsif( $item->is_element )
+			{
+				$name	= lc($item->get_name);
+				$body	= $item->get_attributes_str();
+				if( 'p' eq $name )
+				{
+					$DEBUG &&
+					print "\n---------------\n<$name $body>\n";
+				}
+				elsif( 'a' eq $name )
+				{
+					print "\nlink: $body\n";
+				}
+			}
+		}
+
+	}

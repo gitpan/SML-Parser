@@ -1,0 +1,131 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2004.03.30.01.08.04;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@SML - builder - build another markup from parsed SML
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@### //////////////////////////////////////////////////////////////////////////
+#
+#	TOP
+#
+
+=head1 NAME
+
+SML::Bilder - SIMPLIFIED MARKUP LANGUAGE
+
+=cut
+
+#------------------------------------------------------
+# 2004/03/28 0:51 - $Date: 2004/03/30 00:46:44 $
+# (C) Daniel Peder & Infoset s.r.o., all rights reserved
+# http://www.infoset.com, Daniel.Peder@@infoset.com
+#------------------------------------------------------
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: package
+#
+
+	package SML::Bilder;
+
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: version
+#
+
+	use vars qw( $VERSION $VERSION_LABEL $REVISION $REVISION_DATETIME $REVISION_LABEL $PROG_LABEL );
+
+	$VERSION           = '0.10';
+	
+	$REVISION          = (qw$Revision: 1.1 $)[1];
+	$REVISION_DATETIME = join(' ',(qw$Date: 2004/03/30 00:46:44 $)[1,2]);
+	$REVISION_LABEL    = '$Id: Parser.pm_rev 1.1 2004/03/30 00:46:44 root Exp root $';
+	$VERSION_LABEL     = "$VERSION (rev. $REVISION $REVISION_DATETIME)";
+	$PROG_LABEL        = __PACKAGE__." - ver. $VERSION_LABEL";
+
+=pod
+
+ $Revision: 1.1 $
+ $Date: 2004/03/30 00:46:44 $
+
+=cut
+
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: constants
+#
+
+	# use constant	name		=> 'value';
+	
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: modules use
+#
+
+	require 5.005_62;
+
+	use strict                  ;
+	use warnings                ;
+	
+
+### //////////////////////////////////////////////////////////////////////////
+#
+#	SECTION: methods
+#
+
+=head1 METHODS
+
+=over 4
+
+=cut
+
+
+
+=item new
+
+ $sml = SML::Bilder->new();
+ 
+=cut
+
+### --------------------------------------------------------------------------
+sub new
+### --------------------------------------------------------------------------
+{
+	bless {};
+}
+
+
+
+
+=back
+
+=cut
+
+
+1;
+
+__DATA__
+
+__END__
+@

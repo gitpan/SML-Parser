@@ -1,0 +1,35 @@
+NAME
+
+    SML::Parser - SIMPLIFIED MARKUP LANGUAGE
+
+     $Revision: 1.7 $
+     $Date: 2004/05/19 14:46:10 $
+
+METHODS
+
+    new
+         $sml = SML::Parser->new();
+ 
+    parse ( $str )
+        Parse HTML|XML like string source. No other rules, no checks.
+
+        Creates simple stream of 3 types of parsed items:
+
+         - comment data:
+         [ 'C', $comment_body ]
+ 
+         - text data
+         [ 'T', $text_body ]
+ 
+         - element tag data
+         [ 'E', $pi, $tag_name, $tag_body ]
+ 
+        Data are returned as ref to ARRAY of items described above.
+
+    parse_attributes ( $attr_string )
+        Parse body of the element same way as the HTML attributes.
+
+TODO
+
+    - rewrite some parts of code into methods and subclasses
+

@@ -1,0 +1,32 @@
+#!/usr/bin/perl -w
+
+	use strict;
+	use warnings;
+	use Data::Dump qw(pp);
+	use	SML::Parser;
+	
+	print "START\n";
+	
+	#my	$source_filename	= 't-sml.txt';
+	my	$source_filename	= 'cms.template.sml';
+
+	my	$parser = SML::Parser->new();
+	my	$text_source = qx{cat $source_filename};
+	my	$data = $parser->parse( $text_source );
+
+	print "PARSED\n";
+
+	for my $item ( @$data )
+	{
+		next unless	$item->[0] eq 'E';	# drop non-element items
+		next if		$item->[1];			# drop processing instructions
+		
+		
+		my	$attr_string	= $item->[3];
+		next unless	$attr_string;
+		
+		my	$attrs			= $parser->parse_attributes( $attr_string );
+		
+		print "\n\n----------------\nelement: '", $item->[2], "'\nbody: $attr_string\n\nattrs:\n", pp($attrs);
+		
+	}

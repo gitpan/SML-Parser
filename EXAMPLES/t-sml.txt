@@ -1,0 +1,39 @@
+<!file>
+
+<!section>
+
+<h1>hlavní nadpis
+
+<p>Tohle je normalni odstavec
+
+<l> polozka seznamu
+<<l> druha polozka seznamu
+<l> nadpis treti polozky
+odradkovani
+
+< < <
+
+nova prazdna radek vklada znacku \<p>>
+
+libovolny text za blokovou znackou je automaticky vlozen do inline tagu \<text>
+
+text ke treti polozce
+<<<!-- komentar < > -- -> -->
+
+<valid-tag-with-valid-attributes attr1 attr2= attr3="" attr4=" with ' sgl-qoute" attr5='with " dbl-quote' attr5a=abc'def attr6 = 'kuk' >
+
+<quote-test q1=' q2='= q3==' q4=a'b q5=c'd'e q6='f'g'h>
+
+<a:x-y.z body="abc>" fake-attr="ahoj">
+<l> nadpis ctvrte polozky</l>
+novy odstavec za ctvrtou polozkou
+<l> nadpis pate polozky
+<p> odstavec uvnitr pate polozky
+<p<> druhy odstavec uvnitr pate polozky</p>
+treti odstavec uvnitr pate polozky
+<t text inline in tag>
+
+<-.:absurdly_tag:name_but-valid:yeah attrs"'=also seemed invalid, however valid> then text
+
+<?check this as valid tag>
+<?but this as text only because unclosed
